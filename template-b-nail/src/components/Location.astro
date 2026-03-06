@@ -1,5 +1,6 @@
 ---
 import { siteData } from '../data/site';
+const mapsKey = import.meta.env.PUBLIC_GOOGLE_MAPS_KEY ?? '';
 ---
 
 <section id="location" class="py-20 px-6 bg-[#1A1A2E]">
@@ -78,7 +79,7 @@ import { siteData } from '../data/site';
           loading="lazy"
           allowfullscreen=""
           referrerpolicy="no-referrer-when-downgrade"
-          src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyCxnXu7EyMjn25VZ4z6TmIPf3MfCZRaVt4&q=${encodeURIComponent(siteData.address)}`}
+          src={`https://www.google.com/maps/embed/v1/place?key=${mapsKey}&q=${encodeURIComponent(siteData.address)}`}
         ></iframe>
       </div>
     </div>

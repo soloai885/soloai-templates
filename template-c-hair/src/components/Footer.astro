@@ -1,0 +1,60 @@
+---
+import { siteData } from '../data/site';
+---
+
+<footer class="bg-skin-secondary text-skin-fill py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      {/* Column 1 - Brand */}
+      <div>
+        <h3 class="font-serif text-2xl font-bold mb-2">
+          {siteData.shopName}
+        </h3>
+        <p class="text-skin-fill/75">
+          {siteData.tagline}
+        </p>
+      </div>
+
+      {/* Column 2 - Contact */}
+      <div>
+        <h4 class="font-semibold mb-4 text-white">聯絡資訊</h4>
+        <ul class="space-y-2 text-skin-fill/75">
+          <li>
+            <a href={`tel:${siteData.phone}`} class="hover:text-skin-fill transition">
+              📞 {siteData.phone}
+            </a>
+          </li>
+          <li class="truncate">📍 {siteData.address}</li>
+          <li>{siteData.businessHours}</li>
+        </ul>
+      </div>
+
+      {/* Column 3 - Follow */}
+      <div>
+        <h4 class="font-semibold mb-4 text-white">追蹤我們</h4>
+        <ul class="space-y-2">
+          <li>
+            <a href={siteData.lineUrl} target="_blank" rel="noopener noreferrer" class="text-skin-fill/75 hover:text-skin-fill transition">
+              LINE 官方帳號
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="text-skin-fill/75 hover:text-skin-fill transition">
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="text-skin-fill/75 hover:text-skin-fill transition">
+              Instagram
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Divider */}
+    <div class="border-t border-white/10 pt-8 text-center text-skin-fill/60 text-sm">
+      <p>&copy; 2026 {siteData.shopName}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

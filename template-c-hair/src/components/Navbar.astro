@@ -1,0 +1,90 @@
+---
+import { siteData } from '../data/site';
+---
+
+<nav class="sticky top-0 z-50 bg-skin-fill border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    {/* Logo */}
+    <div class="flex-shrink-0">
+      <a href="/" class="font-serif text-2xl font-bold text-skin-primary">
+        {siteData.shopName}
+      </a>
+    </div>
+
+    {/* Desktop Navigation */}
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#services" class="text-skin-base hover:text-skin-primary transition">服務項目</a>
+      <a href="#designers" class="text-skin-base hover:text-skin-primary transition">設計師</a>
+      <a href="#location" class="text-skin-base hover:text-skin-primary transition">位置資訊</a>
+    </div>
+
+    {/* Right Section */}
+    <div class="flex items-center gap-4">
+      <a href={`tel:${siteData.phone}`} class="hidden sm:block text-sm text-skin-base">
+        {siteData.phone}
+      </a>
+      <a
+        href={siteData.lineUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden md:inline-block px-4 py-2 bg-skin-accent text-skin-secondary rounded text-sm font-medium hover:opacity-90 transition"
+      >
+        加我LINE
+      </a>
+
+      {/* Mobile: Hamburger Button */}
+      <button
+        id="hamburger"
+        class="md:hidden text-skin-primary text-2xl focus:outline-none"
+        aria-label="切換選單"
+      >
+        ☰
+      </button>
+    </div>
+  </div>
+
+  {/* Mobile: Dropdown Menu */}
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-skin-fill border-t border-gray-200"
+  >
+    <div class="flex flex-col gap-4 px-4 py-4">
+      <a href="#services" class="text-skin-base hover:text-skin-primary transition">服務項目</a>
+      <a href="#designers" class="text-skin-base hover:text-skin-primary transition">設計師</a>
+      <a href="#location" class="text-skin-base hover:text-skin-primary transition">位置資訊</a>
+      <a
+        href={siteData.lineUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-skin-accent hover:opacity-80 transition flex items-center gap-2 font-medium"
+      >
+        💬 加我LINE
+      </a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  nav {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+</style>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close menu when clicking on a link
+    const menuLinks = mobileMenu.querySelectorAll('a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  }
+</script>

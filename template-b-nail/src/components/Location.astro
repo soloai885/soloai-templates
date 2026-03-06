@@ -1,6 +1,5 @@
 ---
 import { siteData } from '../data/site';
-
 ---
 
 <section id="location" class="py-20 px-6 bg-[#1A1A2E]">
@@ -70,7 +69,9 @@ import { siteData } from '../data/site';
         </button>
       </div>
 
-    <iframe
+      <!-- Map -->
+      <div class="bg-[#252540] rounded-lg overflow-hidden border border-[#353553] h-96 lg:h-auto">
+        <iframe
           src={`https://www.google.com/maps?q=${encodeURIComponent(siteData.address)}&output=embed`}
           width="100%"
           height="100%"

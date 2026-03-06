@@ -1,0 +1,113 @@
+---
+import { siteData } from '../data/site';
+---
+
+<nav class="sticky top-0 z-50 bg-white shadow-md">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+    <!-- Left: Shop Name -->
+    <div class="font-serif font-bold text-2xl text-skin-base">
+      {siteData.shopName}
+    </div>
+
+    <!-- Right: Desktop Navigation + Buttons -->
+    <div class="hidden md:flex items-center gap-8">
+      <!-- Navigation Links -->
+      <a href="#services" class="text-skin-base hover:text-skin-primary transition">
+        服務項目
+      </a>
+      <a href="#trust" class="text-skin-base hover:text-skin-primary transition">
+        關於我們
+      </a>
+      <a href="#location" class="text-skin-base hover:text-skin-primary transition">
+        位置資訊
+      </a>
+
+      <!-- Phone Button -->
+      <a
+        href={`tel:${siteData.phone}`}
+        class="flex items-center gap-2 text-skin-base hover:text-skin-primary transition"
+      >
+        <span>☎️</span>
+        <span>{siteData.phone}</span>
+      </a>
+
+      <!-- LINE Button -->
+      <a
+        href={siteData.lineUrl}
+        target="_blank"
+        rel="noopener"
+        class="flex items-center gap-2 text-skin-base hover:text-skin-primary transition"
+      >
+        <span>💬</span>
+        <span>LINE</span>
+      </a>
+    </div>
+
+    <!-- Mobile: Hamburger Menu -->
+    <div class="md:hidden flex items-center gap-4">
+      <!-- Phone Icon Only -->
+      <a
+        href={`tel:${siteData.phone}`}
+        class="text-skin-base hover:text-skin-primary transition"
+        title="撥打電話"
+      >
+        <span>☎️</span>
+      </a>
+
+      <!-- Hamburger Menu Button -->
+      <button
+        id="hamburger"
+        class="text-skin-base text-2xl focus:outline-none"
+        aria-label="切換選單"
+      >
+        ☰
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile: Dropdown Menu -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-white border-t border-gray-200"
+  >
+    <div class="flex flex-col gap-4 px-4 py-4">
+      <a href="#services" class="text-skin-base hover:text-skin-primary transition">
+        服務項目
+      </a>
+      <a href="#trust" class="text-skin-base hover:text-skin-primary transition">
+        關於我們
+      </a>
+      <a href="#location" class="text-skin-base hover:text-skin-primary transition">
+        位置資訊
+      </a>
+      <a
+        href={siteData.lineUrl}
+        target="_blank"
+        rel="noopener"
+        class="text-skin-base hover:text-skin-primary transition flex items-center gap-2"
+      >
+        <span>💬</span>
+        <span>加入 LINE</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close menu when clicking on a link
+    const menuLinks = mobileMenu.querySelectorAll('a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  }
+</script>

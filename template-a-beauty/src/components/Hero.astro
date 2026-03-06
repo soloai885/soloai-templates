@@ -1,0 +1,27 @@
+---
+import { siteData } from '../data/site';
+---
+
+<section
+  class="relative bg-cover bg-center min-h-[70vh] flex items-center justify-center"
+  style="background-image: url('/placeholder/hero.jpg')"
+>
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-black/40"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center text-white px-4">
+    <h1 class="font-serif text-4xl md:text-6xl font-bold mb-4">
+      {siteData.shopName}
+    </h1>
+    <p class="text-xl mb-8 opacity-90">
+      {siteData.tagline}
+    </p>
+    <a
+      href="#location"
+      class="inline-block bg-skin-primary text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition"
+    >
+      立即預約
+    </a>
+  </div>
+</section>

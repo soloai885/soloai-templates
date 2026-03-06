@@ -1,0 +1,59 @@
+---
+import { siteData } from '../data/site';
+---
+
+<footer class="bg-skin-base text-white py-12 px-4">
+  <div class="max-w-7xl mx-auto">
+    <!-- Three Column Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <!-- Column 1: Shop Info -->
+      <div>
+        <h3 class="font-serif text-2xl font-bold mb-2">
+          {siteData.shopName}
+        </h3>
+        <p class="text-gray-300 text-sm">
+          {siteData.tagline}
+        </p>
+      </div>
+
+      <!-- Column 2: Contact Info -->
+      <div>
+        <h4 class="font-serif font-bold text-lg mb-4">聯絡資訊</h4>
+        <div class="space-y-2 text-gray-300 text-sm">
+          <p>
+            <span class="font-semibold">電話：</span>
+            <a href={`tel:${siteData.phone}`} class="hover:text-skin-primary transition">
+              {siteData.phone}
+            </a>
+          </p>
+          <p>
+            <span class="font-semibold">地址：</span>
+            <span>{siteData.address}</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Column 3: LINE Button -->
+      <div>
+        <h4 class="font-serif font-bold text-lg mb-4">追蹤我們</h4>
+        <a
+          href={siteData.lineUrl}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-2 bg-skin-primary text-white px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition"
+        >
+          <span>💬</span>
+          <span>加入 LINE</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t border-gray-600 my-8"></div>
+
+    <!-- Bottom Copyright -->
+    <div class="text-center text-gray-400 text-sm">
+      <p>© 2026 {siteData.shopName} All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>

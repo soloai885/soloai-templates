@@ -1,0 +1,25 @@
+---
+import { siteData } from '../data/site';
+---
+
+<section class="bg-skin-secondary py-12 px-4">
+  <div class="max-w-7xl mx-auto">
+    <!-- Title -->
+    <h2 class="font-serif text-3xl md:text-4xl font-bold text-center text-skin-base mb-8">
+      今天想改善什麼？
+    </h2>
+
+    <!-- Service Cards (Horizontal Scrollable) -->
+    <div class="flex gap-4 overflow-x-auto whitespace-nowrap pb-4">
+      {siteData.services.map((service) => (
+        <a
+          href="#services"
+          class="flex-shrink-0 inline-flex items-center gap-3 px-6 py-4 border-2 border-skin-primary rounded-full bg-white text-skin-base hover:bg-skin-primary hover:text-white transition cursor-pointer"
+        >
+          <span class="text-2xl">{service.icon}</span>
+          <span class="font-semibold">{service.name}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

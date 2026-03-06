@@ -1,0 +1,46 @@
+---
+import { siteData } from '../data/site';
+---
+
+<section id="trust" class="bg-skin-secondary py-16 px-4">
+  <div class="max-w-7xl mx-auto">
+    <!-- Trust Points -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      {siteData.trustPoints.map((point) => (
+        <div class="text-center">
+          <div class="text-5xl mb-4">{point.icon}</div>
+          <p class="font-serif text-lg font-semibold text-skin-base">
+            {point.label}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Testimonials -->
+    <div class="bg-white rounded-2xl shadow-md p-8">
+      <h3 class="font-serif text-2xl font-bold text-center text-skin-base mb-8">
+        客戶評價
+      </h3>
+      <div class="space-y-6">
+        <div class="text-center">
+          <p class="font-serif italic text-lg text-gray-700 mb-2">
+            「按摩手法非常專業，環境也很舒適！」
+          </p>
+          <p class="text-skin-primary font-semibold">— 王小姐</p>
+        </div>
+        <div class="text-center">
+          <p class="font-serif italic text-lg text-gray-700 mb-2">
+            「做完臉部保養，皮膚真的有差！會再回來！」
+          </p>
+          <p class="text-skin-primary font-semibold">— 林小姐</p>
+        </div>
+        <div class="text-center">
+          <p class="font-serif italic text-lg text-gray-700 mb-2">
+            「纖體療程效果超好，推薦給所有想瘦身的朋友！」
+          </p>
+          <p class="text-skin-primary font-semibold">— 陳小姐</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

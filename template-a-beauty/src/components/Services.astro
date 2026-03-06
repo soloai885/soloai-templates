@@ -1,0 +1,41 @@
+---
+import { siteData } from '../data/site';
+---
+
+<section id="services" class="py-16 px-4 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <!-- Title -->
+    <h2 class="font-serif text-3xl md:text-4xl font-bold text-center text-skin-base mb-12">
+      熱門服務項目
+    </h2>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {siteData.services.map((service) => (
+        <div class="rounded-2xl shadow-md overflow-hidden bg-white hover:-translate-y-1 transition">
+          <!-- Image -->
+          <div class="aspect-video overflow-hidden">
+            <img
+              src="/placeholder/card.jpg"
+              alt={service.name}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Content -->
+          <div class="p-6">
+            <div class="text-3xl mb-3">{service.icon}</div>
+            <h3 class="font-serif text-xl font-bold text-skin-base mb-2">
+              {service.name}
+            </h3>
+            <div class="text-sm text-gray-600 mb-3">
+              <p class="font-semibold text-skin-primary">{service.price}</p>
+              <p class="text-gray-500">{service.duration}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

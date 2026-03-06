@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteData } from '../data/site';
+---
+<BaseLayout>
+  <main class="min-h-screen flex items-center justify-center">
+    <div class="text-center">
+      <h1 class="text-4xl font-serif text-skin-primary mb-4">{siteData.shopName}</h1>
+      <p class="text-lg text-skin-base">{siteData.tagline}</p>
+      <p class="mt-4 text-sm text-gray-500">版型B - 美甲（Phase 1 骨架）</p>
+    </div>
+  </main>
+</BaseLayout>

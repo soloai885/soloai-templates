@@ -1,0 +1,31 @@
+---
+import { siteData } from '../data/site';
+const { title = siteData.shopName, description = siteData.tagline } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-primary: #2D3A2E;
+      --color-secondary: #1C1C1C;
+      --color-accent: #C9A96E;
+      --color-text: #2D3A2E;
+      --color-fill: #F5F0E8;
+    }
+  </style>
+</head>
+<body class="font-sans text-skin-base bg-skin-fill">
+  <slot />
+</body>
+</html>

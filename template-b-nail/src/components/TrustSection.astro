@@ -1,0 +1,60 @@
+---
+import { siteData } from '../data/site';
+---
+
+<section id="trust" class="py-20 px-6 bg-[#252540]">
+  <div class="max-w-6xl mx-auto">
+    <!-- Trust Points -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      {siteData.trustPoints.map((point) => (
+        <div class="text-center">
+          <div class="text-5xl mb-4">{point.icon}</div>
+          <p class="text-lg text-skin-base font-semibold">{point.label}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Divider -->
+    <div class="h-px bg-gradient-to-r from-transparent via-skin-accent to-transparent opacity-50 my-12"></div>
+
+    <!-- Customer Reviews -->
+    <div class="mt-16">
+      <h3 class="text-3xl font-serif text-skin-primary text-center mb-12">客戶評價</h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Review 1 -->
+        <div class="bg-[#1A1A2E] p-6 rounded-lg border border-[#353553] hover:border-skin-accent transition-all duration-300">
+          <div class="flex gap-1 mb-4">
+            {[...Array(5)].map(() => <span class="text-skin-accent">★</span>)}
+          </div>
+          <p class="text-skin-base mb-4 italic">
+            「做完指甲超美的！朋友都問我在哪做的～」
+          </p>
+          <p class="text-sm text-gray-400 font-semibold">— 李小姐</p>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="bg-[#1A1A2E] p-6 rounded-lg border border-[#353553] hover:border-skin-accent transition-all duration-300">
+          <div class="flex gap-1 mb-4">
+            {[...Array(5)].map(() => <span class="text-skin-accent">★</span>)}
+          </div>
+          <p class="text-skin-base mb-4 italic">
+            「美甲師很有耐心，設計也很有創意！」
+          </p>
+          <p class="text-sm text-gray-400 font-semibold">— 張小姐</p>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="bg-[#1A1A2E] p-6 rounded-lg border border-[#353553] hover:border-skin-accent transition-all duration-300">
+          <div class="flex gap-1 mb-4">
+            {[...Array(5)].map(() => <span class="text-skin-accent">★</span>)}
+          </div>
+          <p class="text-skin-base mb-4 italic">
+            「每次來都很放鬆，環境很舒適」
+          </p>
+          <p class="text-sm text-gray-400 font-semibold">— 黃小姐</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

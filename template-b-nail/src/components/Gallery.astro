@@ -1,0 +1,186 @@
+---
+---
+
+<section id="gallery" class="py-20 px-6 bg-[#1A1A2E]">
+  <div class="max-w-6xl mx-auto">
+    <!-- Title -->
+    <h2 class="text-4xl md:text-5xl font-serif text-skin-primary text-center mb-12">
+      美甲作品集
+    </h2>
+
+    <!-- Filter Buttons -->
+    <div class="flex gap-3 justify-center mb-12 flex-wrap">
+      <button class="filter-btn active" data-filter="all">全部</button>
+      <button class="filter-btn" data-filter="french">法式</button>
+      <button class="filter-btn" data-filter="gradient">漸層</button>
+      <button class="filter-btn" data-filter="holiday">節日款</button>
+      <button class="filter-btn" data-filter="minimal">簡約</button>
+    </div>
+
+    <!-- Masonry Gallery -->
+    <div class="masonry">
+      <!-- French -->
+      <div class="masonry-item" data-tag="french">
+        <img
+          src="/placeholder/card.jpg"
+          alt="法式經典款"
+          loading="lazy"
+          class="w-full rounded-lg hover:opacity-80 transition-opacity duration-300"
+        />
+        <p class="text-sm text-gray-400 mt-2">法式經典款</p>
+      </div>
+
+      <div class="masonry-item" data-tag="french">
+        <img
+          src="/placeholder/card.jpg"
+          alt="法式粉嫩款"
+          loading="lazy"
+          class="w-full rounded-lg hover:opacity-80 transition-opacity duration-300"
+        />
+        <p class="text-sm text-gray-400 mt-2">法式粉嫩款</p>
+      </div>
+
+      <div class="masonry-item" data-tag="french">
+        <img
+          src="/placeholder/card.jpg"
+          alt="法式黑金款"
+          loading="lazy"
+          class="w-full rounded-lg hover:opacity-80 transition-opacity duration-300"
+        />
+        <p class="text-sm text-gray-400 mt-2">法式黑金款</p>
+      </div>
+
+      <!-- Gradient -->
+      <div class="masonry-item" data-tag="gradient">
+        <img
+          src="/placeholder/card.jpg"
+          alt="紫粉漸層"
+          loading="lazy"
+          class="w-full rounded-lg hover:opacity-80 transition-opacity duration-300"
+        />
+        <p class="text-sm text-gray-400 mt-2">紫粉漸層</p>
+      </div>
+
+      <div class="masonry-item" data-tag="gradient">
+        <img
+          src="/placeholder/card.jpg"
+          alt="藍紫漸層"
+          loading="lazy"
+          class="w-full rounded-lg hover:opacity-80 transition-opacity duration-300"
+        />
+        <p class="text-sm text-gray-400 mt-2">藍紫漸層</p>
+      </div>
+
+      <div class="masonry-item" data-tag="gradient">
+        <img
+          src="/placeholder/card.jpg"
+          alt="玫瑰金漸層"
+          loading="lazy"
+          class="w-full rounded-lg hover:opacity-80 transition-opacity duration-300"
+        />
+        <p class="text-sm text-gray-400 mt-2">玫瑰金漸層</p>
+      </div>
+
+      <!-- Holiday -->
+      <div class="masonry-item" data-tag="holiday">
+        <img
+          src="/placeholder/card.jpg"
+          alt="聖誕節款"
+          loading="lazy"
+          class="w-full rounded-lg hover:opacity-80 transition-opacity duration-300"
+        />
+        <p class="text-sm text-gray-400 mt-2">聖誕節款</p>
+      </div>
+
+      <div class="masonry-item" data-tag="holiday">
+        <img
+          src="/placeholder/card.jpg"
+          alt="新年紅金款"
+          loading="lazy"
+          class="w-full rounded-lg hover:opacity-80 transition-opacity duration-300"
+        />
+        <p class="text-sm text-gray-400 mt-2">新年紅金款</p>
+      </div>
+
+      <!-- Minimal -->
+      <div class="masonry-item" data-tag="minimal">
+        <img
+          src="/placeholder/card.jpg"
+          alt="簡約黑白款"
+          loading="lazy"
+          class="w-full rounded-lg hover:opacity-80 transition-opacity duration-300"
+        />
+        <p class="text-sm text-gray-400 mt-2">簡約黑白款</p>
+      </div>
+
+      <div class="masonry-item" data-tag="minimal">
+        <img
+          src="/placeholder/card.jpg"
+          alt="裸色簡約款"
+          loading="lazy"
+          class="w-full rounded-lg hover:opacity-80 transition-opacity duration-300"
+        />
+        <p class="text-sm text-gray-400 mt-2">裸色簡約款</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .filter-btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-300;
+  }
+
+  .filter-btn.active {
+    @apply bg-skin-accent text-white;
+  }
+
+  .filter-btn:not(.active) {
+    @apply bg-[#252540] text-skin-base border border-skin-accent hover:border-skin-accent hover:text-skin-accent;
+  }
+
+  .masonry {
+    columns: 3;
+    column-gap: 1rem;
+  }
+
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .masonry {
+      columns: 1;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1023px) {
+    .masonry {
+      columns: 2;
+    }
+  }
+</style>
+
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const items = document.querySelectorAll('.masonry-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Update active state
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Filter items
+      const filter = btn.dataset.filter;
+      items.forEach(item => {
+        if (filter === 'all' || item.dataset.tag === filter) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

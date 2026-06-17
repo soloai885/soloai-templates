@@ -1,4 +1,5 @@
 ---
+import { siteData } from '../data/site';
 ---
 
 <section id="gallery" class="py-20 px-6 bg-[#1A1A2E]">
@@ -19,109 +20,17 @@
 
     <!-- Masonry Gallery -->
     <div class="masonry">
-      <!-- French -->
-      <div class="masonry-item" data-tag="french">
-        <img
-          src="/placeholder/card.jpg"
-          alt="法式經典款"
-          loading="lazy"
-          class="w-full rounded-lg hover:opacity-80 transition-opacity duration-300"
-        />
-        <p class="text-sm text-gray-400 mt-2">法式經典款</p>
-      </div>
-
-      <div class="masonry-item" data-tag="french">
-        <img
-          src="/placeholder/card.jpg"
-          alt="法式粉嫩款"
-          loading="lazy"
-          class="w-full rounded-lg hover:opacity-80 transition-opacity duration-300"
-        />
-        <p class="text-sm text-gray-400 mt-2">法式粉嫩款</p>
-      </div>
-
-      <div class="masonry-item" data-tag="french">
-        <img
-          src="/placeholder/card.jpg"
-          alt="法式黑金款"
-          loading="lazy"
-          class="w-full rounded-lg hover:opacity-80 transition-opacity duration-300"
-        />
-        <p class="text-sm text-gray-400 mt-2">法式黑金款</p>
-      </div>
-
-      <!-- Gradient -->
-      <div class="masonry-item" data-tag="gradient">
-        <img
-          src="/placeholder/card.jpg"
-          alt="紫粉漸層"
-          loading="lazy"
-          class="w-full rounded-lg hover:opacity-80 transition-opacity duration-300"
-        />
-        <p class="text-sm text-gray-400 mt-2">紫粉漸層</p>
-      </div>
-
-      <div class="masonry-item" data-tag="gradient">
-        <img
-          src="/placeholder/card.jpg"
-          alt="藍紫漸層"
-          loading="lazy"
-          class="w-full rounded-lg hover:opacity-80 transition-opacity duration-300"
-        />
-        <p class="text-sm text-gray-400 mt-2">藍紫漸層</p>
-      </div>
-
-      <div class="masonry-item" data-tag="gradient">
-        <img
-          src="/placeholder/card.jpg"
-          alt="玫瑰金漸層"
-          loading="lazy"
-          class="w-full rounded-lg hover:opacity-80 transition-opacity duration-300"
-        />
-        <p class="text-sm text-gray-400 mt-2">玫瑰金漸層</p>
-      </div>
-
-      <!-- Holiday -->
-      <div class="masonry-item" data-tag="holiday">
-        <img
-          src="/placeholder/card.jpg"
-          alt="聖誕節款"
-          loading="lazy"
-          class="w-full rounded-lg hover:opacity-80 transition-opacity duration-300"
-        />
-        <p class="text-sm text-gray-400 mt-2">聖誕節款</p>
-      </div>
-
-      <div class="masonry-item" data-tag="holiday">
-        <img
-          src="/placeholder/card.jpg"
-          alt="新年紅金款"
-          loading="lazy"
-          class="w-full rounded-lg hover:opacity-80 transition-opacity duration-300"
-        />
-        <p class="text-sm text-gray-400 mt-2">新年紅金款</p>
-      </div>
-
-      <!-- Minimal -->
-      <div class="masonry-item" data-tag="minimal">
-        <img
-          src="/placeholder/card.jpg"
-          alt="簡約黑白款"
-          loading="lazy"
-          class="w-full rounded-lg hover:opacity-80 transition-opacity duration-300"
-        />
-        <p class="text-sm text-gray-400 mt-2">簡約黑白款</p>
-      </div>
-
-      <div class="masonry-item" data-tag="minimal">
-        <img
-          src="/placeholder/card.jpg"
-          alt="裸色簡約款"
-          loading="lazy"
-          class="w-full rounded-lg hover:opacity-80 transition-opacity duration-300"
-        />
-        <p class="text-sm text-gray-400 mt-2">裸色簡約款</p>
-      </div>
+      {siteData.gallery.map((item) => (
+        <div class="masonry-item" data-tag={item.tag}>
+          <img
+            src={item.src}
+            alt={item.alt}
+            loading="lazy"
+            class="w-full rounded-lg hover:opacity-80 transition-opacity duration-300"
+          />
+          <p class="text-sm text-gray-400 mt-2">{item.alt}</p>
+        </div>
+      ))}
     </div>
   </div>
 </section>

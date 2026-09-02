@@ -20,7 +20,6 @@ export const siteData = {
   ],
   trustPoints: [
     { icon: "⭐", label: "Google 評分 4.9" },
-    { icon: "👥", label: "服務超過 500 位顧客" },
     { icon: "🏆", label: "專業認證美容師" },
   ],
 };

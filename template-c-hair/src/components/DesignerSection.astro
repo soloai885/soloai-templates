@@ -1,0 +1,87 @@
+---
+import { siteData } from '../data/site';
+---
+
+<section id="designers" class="py-16 md:py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="font-serif text-4xl md:text-5xl font-bold text-skin-primary mb-4">
+        設計師介紹
+      </h2>
+      <p class="text-skin-base text-lg max-w-2xl mx-auto">
+        每位設計師都擁有豐富的專業經驗
+      </p>
+    </div>
+
+    {/* Horizontal Scroll Container - Mobile / Desktop Grid */}
+    <div class="designer-scroll">
+      {siteData.designers.map((designer) => (
+        <div class="designer-card bg-skin-fill rounded-lg p-6 text-center flex-shrink-0 w-60">
+          {/* Avatar Circle */}
+          <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-300 flex items-center justify-center">
+            <img src={designer.avatar} alt={designer.name} class="w-full h-full object-cover" />
+          </div>
+
+          {/* Name */}
+          <h3 class="font-serif text-2xl font-bold text-skin-primary mb-2">
+            {designer.name}
+          </h3>
+
+          {/* Tags */}
+          <div class="flex flex-wrap gap-2 justify-center mb-6">
+            {designer.tags.map((tag) => (
+              <span class="px-3 py-1 bg-white border border-skin-primary text-skin-primary text-xs font-medium rounded">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* Book Button */}
+          <a
+            href={`https://line.me/R/ti/p/@hair-demo?text=我想預約${designer.name}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block w-full py-2 bg-skin-primary text-white font-medium rounded hover:opacity-90 transition"
+          >
+            預約{designer.name}
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .designer-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0.5rem;
+  }
+
+  .designer-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .designer-card {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 1024px) {
+    .designer-scroll {
+      overflow-x: visible;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .designer-card {
+      width: auto;
+      min-width: 280px;
+    }
+  }
+</style>
